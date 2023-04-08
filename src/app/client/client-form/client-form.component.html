@@ -1,0 +1,100 @@
+<form *ngIf="" (ngSubmit)="onSubmit()" #clientForm="ngForm">
+  <div class="row">
+    <div class="col s8 offset-s2">
+      <div class="card-panel">
+
+        <!-- client name -->
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input type="text" class="form-control" id="name"
+                  required
+                  pattern="^[a-zA-Z0-9àéèç]{1,25}$"
+                 [(ngModel)]="client.nom" name="name"
+                 #name="ngModel">
+
+          <div [hidden]="name.valid || name.pristine"
+                class="card-panel red accent-1">
+                Le nom du pokémon est requis (1-25).
+          </div>
+        </div>
+
+        <!-- Pokemon premon -->
+        <div class="form-group">
+          <label for="pname">Point de vie</label>
+          <input type="text" class="form-control" id="pname"
+                  required
+                  pattern="^[0-9]{1,3}$"
+                 [(ngModel)]="client.prenom" name="pname"
+                 #pname="ngModel">
+           <div [hidden]="pname.valid || pname.pristine"
+                 class="card-panel red accent-1">
+                 Les points de vie du pokémon sont compris entre 0 et 999.
+           </div>
+        </div>
+
+        <!-- Pokemon addresse -->
+        <div class="form-group">
+          <label for="adress">Adresse</label>
+          <input type="text" class="form-control" id="address"
+                  required
+                  pattern="^[0-9]{1,2}$"
+                 [(ngModel)]="client.adresse" name="address"
+                 #address="ngModel">
+           <div [hidden]="address.valid || address.pristine"
+                 class="card-panel red accent-1">
+                 Les dégâts du pokémon sont compris entre 0 et 99.
+           </div>
+        </div>
+        <!-- Client  pseudo  -->
+        <div  class="form-group">
+          <label for="pseudo">Pseudo</label>
+          <input type="text" class="form-control" id="pseudo"
+                  required
+                 [(ngModel)]="client.pseudo" name="pseudo"
+                 #pseudo="ngModel">
+           <div [hidden]="pseudo.valid || pseudo.pristine"
+                 class="card-panel red accent-1">
+                 L'image du pokémon sont compris entre 0 et 99.
+           </div>
+        </div>
+          <!-- client Email  -->
+          <div  class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email"
+                    required
+                   [(ngModel)]="client.email" name="email"
+                   #email="ngModel">
+             <div [hidden]="email.valid || email.pristine"
+                   class="card-panel red accent-1">
+                   L'image du pokémon sont compris entre 0 et 99.
+             </div>
+          </div>
+            <!-- client mot de passe   -->
+        <div  class="form-group">
+          <label for="password">Mot de passe</label>
+          <input type="text" class="form-control" id="password"
+                  required
+                 [(ngModel)]="client.password" name="password"
+                 #password="ngModel">
+           <div [hidden]="password.valid || password.pristine"
+                 class="card-panel red accent-1">
+                 L'image du pokémon sont compris entre 0 et 99.
+           </div>
+        </div>
+
+
+        <!-- Submit button -->
+        <div class="divider"></div>
+        <div class="section center">
+          <button type="submit"
+            class="waves-effect waves-light btn"
+            [disabled]="!clientForm.form.valid">
+            Valider</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</form>
+<h3 *ngIf="!client" class="center">Aucun client à éditer...</h3>
+
